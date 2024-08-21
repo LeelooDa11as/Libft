@@ -6,7 +6,7 @@
 #    By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 17:33:00 by kkoval            #+#    #+#              #
-#    Updated: 2024/08/21 20:13:16 by kkoval           ###   ########.fr        #
+#    Updated: 2024/08/21 20:49:10 by kkoval           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,10 @@ SRCS = ft_isalpha.c ft_toupper.c ft_isdigit.c ft_tolower.c ft_isalnum.c \
 	   ft_putnbr_fd.c ft_striteri.c ft_strlcat.c
 
 
-SRCS_BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
-			 ft_lstiter.c ft_lstlast.c ft_lstnew.c ft_lstsize.c ft_lstmap.c
+SRCS_BONUS = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
+			 ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c \
+			 ft_lstlast_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c \
+			 ft_lstmap_bonus.c
 
 OBJS = ${SRCS:.c=.o}
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
