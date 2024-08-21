@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 19:48:01 by kkoval            #+#    #+#             */
-/*   Updated: 2024/08/21 19:57:36 by kkoval           ###   ########.fr       */
+/*   Created: 2024/08/21 19:51:00 by kkoval            #+#    #+#             */
+/*   Updated: 2024/08/21 19:54:56 by kkoval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	i;
-	int	len;
+	t_list	*flst;
+	t_list	*tmp;
+	t_list	*tmp2;
 
-	i = 0;
-	len = (int) ft_strlen(s);
-	while (i < len)
+	if (!lst)
+		return (lst);
+	flst = NULL;
+	while (lst)
 	{
-		write(fd, s + i, 1);
-		i++;
+		tmp2 = f(lst->content);
+		tmp = ft_lstnew(tmp2);
+		if (!(tmp))
+		{
+			del(tmp2);
+			ft_lstclear(&flst, del);
+			return (0);
+		}
+		ft_lstadd_back(&flst, tmp);
+		lst = lst->next;
 	}
-	return ;
+	return (flst);
 }
-/*
-int	main(void)
-{
-	char	*s = "Nina";
-	int		fd;
-
-	fd = 1;
-	ft_putstr_fd(s, fd);
-	return (1);
-}*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkoval <kkoval@student.42barcelon>         +#+  +:+       +#+        */
+/*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 18:23:32 by kkoval            #+#    #+#             */
-/*   Updated: 2023/03/09 19:04:13 by kkoval           ###   ########.fr       */
+/*   Updated: 2024/08/21 20:00:12 by kkoval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static size_t	ft_word_count(char const *s, char c)
 }
 
 static size_t	ft_word_len(char const *s, char c, size_t i)
-{	
+{
 	size_t	len_s;
 
 	len_s = 0;
@@ -44,7 +44,7 @@ static size_t	ft_word_len(char const *s, char c, size_t i)
 }
 
 static void	*ft_free(char**result, size_t x)
-{	
+{
 	size_t	i;
 
 	i = 0;

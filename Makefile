@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kkoval <kkoval@student.42barcelon>         +#+  +:+       +#+         #
+#    By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 17:33:00 by kkoval            #+#    #+#              #
-#    Updated: 2023/03/10 16:03:12 by kkoval           ###   ########.fr        #
+#    Updated: 2024/08/21 20:13:16 by kkoval           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,12 @@ SRCS = ft_isalpha.c ft_toupper.c ft_isdigit.c ft_tolower.c ft_isalnum.c \
 	   ft_strmapi.c ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 	   ft_putnbr_fd.c ft_striteri.c ft_strlcat.c
 
+
+SRCS_BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
+			 ft_lstiter.c ft_lstlast.c ft_lstnew.c ft_lstsize.c ft_lstmap.c
+
 OBJS = ${SRCS:.c=.o}
+OBJS_BONUS = ${SRCS_BONUS:.c=.o}
 
 HEADER = libft.h
 NAME = libft.a
@@ -35,12 +40,16 @@ ${NAME}:	${OBJS}
 			ar rcs ${NAME} ${OBJS}
 			ranlib ${NAME}
 
+bonus: 		$(OBJS) $(OBJS_BONUS) $(HEADER)
+			ar -rcs $(NAME) $(OBJ) $(OBJS_BONUS)
+
 clean:
 			${RM} ${OBJS}
-			${RM}
+			${RM} ${OBJS_BONUS}
 
 fclean:     clean
 			${RM} ${NAME}
+			${RM} bonus
 
 re:         fclean all
 

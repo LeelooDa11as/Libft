@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 19:48:01 by kkoval            #+#    #+#             */
-/*   Updated: 2024/08/21 19:57:36 by kkoval           ###   ########.fr       */
+/*   Created: 2024/08/21 18:26:58 by kkoval            #+#    #+#             */
+/*   Updated: 2024/08/21 19:47:39 by kkoval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+/*void	del(void *content)
 {
-	int	i;
-	int	len;
+	if (content != NULL)
+		free(content);
+}*/
 
-	i = 0;
-	len = (int) ft_strlen(s);
-	while (i < len)
-	{
-		write(fd, s + i, 1);
-		i++;
-	}
-	return ;
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
+{
+	del(lst->content);
+	free(lst);
 }
+
 /*
 int	main(void)
 {
-	char	*s = "Nina";
-	int		fd;
+	t_list	*node;
 
-	fd = 1;
-	ft_putstr_fd(s, fd);
-	return (1);
+	node = malloc(sizeof(t_list) * 1);
+	if (!node)
+		return (1);
+	node->content = ft_strdup("yeyeyeyeye");
+	node->next = NULL;
+	printf("el contenido es %s\n", (char*)node->content);
+	ft_lstdelone(node, &del);
+	printf("el contenido es %s\n", (char*)node->content);
 }*/

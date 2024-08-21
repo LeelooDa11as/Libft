@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkoval <kkoval@student.42barcelon>         +#+  +:+       +#+        */
+/*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 21:05:40 by kkoval            #+#    #+#             */
-/*   Updated: 2023/03/09 18:56:50 by kkoval           ###   ########.fr       */
+/*   Updated: 2024/08/21 19:58:13 by kkoval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 static void	ft_putchar(char c, int fd)
@@ -27,7 +28,7 @@ void	ft_putnbr_fd(int n, int fd)
 			return ;
 		}
 		else
-		{	
+		{
 			n *= -1;
 			ft_putchar('-', fd);
 		}

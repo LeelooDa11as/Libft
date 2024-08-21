@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkoval <kkoval@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 19:48:01 by kkoval            #+#    #+#             */
-/*   Updated: 2024/08/21 19:57:36 by kkoval           ###   ########.fr       */
+/*   Created: 2024/08/21 15:56:17 by kkoval            #+#    #+#             */
+/*   Updated: 2024/08/21 16:19:17 by kkoval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list	*ft_lstnew(void *content)
 {
-	int	i;
-	int	len;
+	t_list	*node;
 
-	i = 0;
-	len = (int) ft_strlen(s);
-	while (i < len)
-	{
-		write(fd, s + i, 1);
-		i++;
-	}
-	return ;
+	node = malloc(sizeof(t_list) * 1);
+	if (!node)
+		return ((t_list *) NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
-/*
-int	main(void)
-{
-	char	*s = "Nina";
-	int		fd;
 
-	fd = 1;
-	ft_putstr_fd(s, fd);
-	return (1);
+/*
+int main (void)
+{
+    t_list  *hey;
+    void    *str = "hola que tal";
+
+    hey = ft_lstnew(str);
+    printf("%s\n", (char *)(hey->content));
+    return (0);
 }*/
